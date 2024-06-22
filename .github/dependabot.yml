@@ -1,0 +1,23 @@
+# Docs: https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "saturday"
+      time: "14:00"
+      timezone: "America/Toronto"
+    target-branch: "main"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "[dependency update]"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "*"
+      dependencies:
+        patterns:
+          - "*"

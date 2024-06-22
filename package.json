@@ -1,0 +1,38 @@
+{
+  "name": "tjs-volunteer-site",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "volta": {
+    "node": "20.15.0"
+  },
+  "scripts": {
+    "postinstall": "husky install",
+    "start": "npm run dev",
+    "dev": "astro dev --site=http://localhost:3000/",
+    "build": "astro check && astro build",
+    "prepreview": "npm run build",
+    "preview": "astro preview --site=http://localhost:3000/",
+    "typecheck": "tsc --noEmit",
+    "lint:js": "eslint src --ext .js,.mjs,.ts,.mts,.astro --fix --ignore-path .gitignore",
+    "lint:md": "astro check",
+    "lint": "npm run typecheck && npm run lint:js && npm run lint:md",
+    "astro": "astro"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.7.0",
+    "@stylistic/eslint-plugin": "2.2.2",
+    "@typescript-eslint/eslint-plugin": "7.13.1",
+    "@typescript-eslint/parser": "7.13.1",
+    "astro": "4.11.0",
+    "eslint": "8.57.0",
+    "eslint-plugin-astro": "1.2.2",
+    "eslint-plugin-jsx-a11y": "6.9.0",
+    "husky": "9.0.11",
+    "typescript": "5.5.2"
+  }
+}
