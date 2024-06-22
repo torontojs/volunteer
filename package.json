@@ -29,7 +29,7 @@
     "@typescript-eslint/eslint-plugin": "7.13.1",
     "@typescript-eslint/parser": "7.13.1",
     "astro": "4.11.0",
-    "eslint": "8.57.0",
+    "eslint": "9.5.0",
     "eslint-plugin-astro": "1.2.2",
     "eslint-plugin-jsx-a11y": "6.9.0",
     "husky": "9.0.11",
