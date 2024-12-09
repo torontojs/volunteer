@@ -1,0 +1,28 @@
+[
+  {
+    "id": "1",
+    "email": "john.doe@example.com",
+    "name": "John Doe",
+    "description": "A passionate volunteer.",
+    "happenedAt": "2024-12-09T12:00:00",
+    "insertedAt": "2024-12-01T10:00:00",
+    "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+    "socialLinks": {
+      "facebook": "https://facebook.com/johndoe",
+      "twitter": "https://twitter.com/johndoe"
+    }
+  },
+  {
+    "id": "2",
+    "email": "jane.smith@example.com",
+    "name": "Jane Smith",
+    "description": "Enthusiastic about helping communities.",
+    "happenedAt": "2024-12-08T14:00:00",
+    "insertedAt": "2024-12-02T11:00:00",
+    "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/janesmith"
+    }
+  }
+]
+
