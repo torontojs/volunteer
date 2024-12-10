@@ -1,39 +1,42 @@
 {
-  "name": "vms-fe-mvp",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
+	"name": "vms-fe-mvp",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
 		"prepare": "husky",
-    "dev": "vite",
-    "build": "vite build",
+		"dev": "vite",
+		"build": "vite build",
 		"format": "dprint fmt --staged",
 		"typecheck": "tsc --noEmit",
 		"lint:js": "eslint --fix",
 		"lint": "npm run typecheck && npm run lint:js",
 		"prepreview": "npm run build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "open-props": "^1.7.8",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"open-props": "^1.7.8",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	},
+	"devDependencies": {
 		"@types/node": "22.10.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+		"@types/react": "^18.3.12",
+		"@types/react-dom": "^18.3.1",
 		"@typescript-eslint/eslint-plugin": "8.16.0",
 		"@typescript-eslint/parser": "8.16.0",
-    "@vitejs/plugin-react": "^4.3.4",
+		"@vitejs/plugin-react": "^4.3.4",
 		"eslint": "9.16.0",
-    "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.14",
+		"eslint-plugin-react": "^7.37.2",
+		"eslint-plugin-react-hooks": "^5.0.0",
+		"eslint-plugin-react-refresh": "^0.4.14",
 		"globals": "15.13.0",
 		"husky": "9.1.7",
 		"typescript": "5.7.2",
-    "vite": "^6.0.1"
+		"vite": "^6.0.1"
+	},
+	"volta": {
+		"node": "22.12.0"
 	},
 	"overrides": {
 		"array-includes": "npm:@nolyfill/array-includes@^1",
@@ -50,5 +53,5 @@
 		"object.values": "npm:@nolyfill/object.values@^1",
 		"string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@^1",
 		"string.prototype.repeat": "npm:@nolyfill/string.prototype.repeat@^1"
-  }
+	}
 }
