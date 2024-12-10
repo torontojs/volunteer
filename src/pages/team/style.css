@@ -1,0 +1,49 @@
+@import url('https://cdn.jsdelivr.net/npm/open-props@1.0.0/open-props.min.css');
+
+:root {
+	--background-color: var(--light-gray);
+	--font-family: var(--ff-serif);
+}
+
+/* Card Styles using W3C standards */
+.card {
+	background-color: white;
+	border: 1px solid #cccccc;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	padding: 16px;
+}
+
+.card-header {
+	font-size: 1.25rem;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+.card-body {
+	display: flex;
+	flex-direction: column;
+}
+
+.profile-header {
+	align-items: center;
+	display: flex;
+	margin-bottom: 16px;
+}
+
+.avatar {
+	border-radius: 50%;
+	height: 80px;
+	margin-right: 16px;
+	width: 80px;
+}
+
+.social-links a {
+	color: #0077b5; /* LinkedIn blue */
+	margin: 0 8px;
+	text-decoration: none;
+}
+
+.social-links a:hover { text-decoration: underline; }
