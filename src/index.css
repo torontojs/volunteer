@@ -1,6 +1,9 @@
-@import url('https://cdn.jsdelivr.net/npm/open-props@1.0.0/open-props.min.css');
+@import "open-props/style";
 
 :root {
-  --background-color: var(--light-gray);
-  --font-family: var(--ff-serif);
+  background-color: var(--gray-0);
+  font-family: var(--font-neo-grotesque);
+  --color-red: #ee3124; 
+  --color-grey: #9b9ba9; 
+  --color-yellow: #fff854; 
 }
