@@ -40,7 +40,7 @@ const Teams = () => {
 
   // If data not yet loaded
   if (!isLoadedTeamsData) {
-    return <div>Loading...</div>;
+    return <div aria-live="polite" role="status">Loading teams...</div>;
   }
 
   // If error encountered
