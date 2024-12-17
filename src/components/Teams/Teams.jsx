@@ -45,7 +45,7 @@ const Teams = () => {
 
   // If error encountered
   if (teamsError) {
-    return <div>An error occurred!</div>;
+    return <div>Unable to load teams. Please try refreshing the page.</div>;
   }
 
   // If team data is loaded but empty data returned
