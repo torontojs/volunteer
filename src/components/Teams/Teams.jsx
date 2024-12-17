@@ -56,28 +56,33 @@ const Teams = () => {
   // Render data
   if(!teamsError && teamsData.length > 0) {
     return (
-      <section>
+      <main>
         {teamsData.map((team, index) => {
           return (
-            <div key={index} className="team">
-              <div className="team-header">
+            <article key={index} className="team">
+              <header className="team-header">
                 <h2>{team.name}</h2>
-                <p>{team.description}</p>
-              </div>
+              </header>
 
-              <div className="team-body">              
+              <div className="team-body">
+                <p>{team.description}</p>
+         
                 {(!teamMembersData || teamMembersData.length <= 0) && (
-                  <div>No Team Members Found!</div>
+                  <div>This team has no active members.</div>
                 )}                
-                {teamMembersData.length > 0 &&
-                  teamMembersData.map((member, index) => (
-                    <TeamMember key={index} member={member} />
+                {teamMembersData.length > 0 && (
+                  <h3 id="team-members-label-{index}">Team members</h3>
+                  <ul aria-labeled-by="team-members-label-{index}">
+                  {teamMembersData.map((member, index) => (
+                    <li><TeamMember key={index} member={member} /></li>
                   ))}
+                  </ul>
+                )}
               </div>
-            </div>
+            </article>
           );
         })}
-      </section>
+      </main>
     );
   }
 };
