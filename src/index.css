@@ -1,9 +1,10 @@
 @import "open-props/style";
+@import "open-props/open-props.min.css";
 
 :root {
-  background-color: var(--gray-0);
+  --color-red: #ee3124;
+  --color-grey: #9b9ba9;
+  --color-yellow: #fff854;  
   font-family: var(--font-neo-grotesque);
-  --color-red: #ee3124; 
-  --color-grey: #9b9ba9; 
-  --color-yellow: #fff854; 
+  color: var(--gray-9);
 }
