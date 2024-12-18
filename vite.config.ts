@@ -9,7 +9,7 @@ import { defineConfig, type UserConfig } from 'vite';
 const IS_DEBUG = false;
 
 export default defineConfig(({ mode }) => {
-	let baseUrl = 'https://sdrlog.madcampos.dev/';
+	let baseUrl = 'https://volunteer.torontojs.com/';
 
 	if (mode !== 'production' || IS_DEBUG) {
 		baseUrl = 'https://localhost:3000/';
