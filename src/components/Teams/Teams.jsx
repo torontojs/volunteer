@@ -81,7 +81,6 @@ const Teams = () => {
               <header className="team-header">
                 <h2>{team.name}</h2>
               </header>
-
               <div className="team-body">
                 <p>{team.description}</p>
                 {isLoadedTeamMembersData && teamMembersDataError && (
