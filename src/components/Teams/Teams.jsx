@@ -62,12 +62,21 @@ const Teams = () => {
 
   // If error encountered
   if (teamsDataError) {
-    return <div>Unable to load teams. Please try refreshing the page.</div>;
+    return (
+      <div aria-live="polite" role="status">
+        Unable to load teams. Please try refreshing the page.
+      </div>
+    );
   }
 
   // If team data is loaded but empty data returned
   if (isLoadedTeamsData && !teamsDataError && (!teamsData || teamsData.length === 0)) {
-    return <div>There were no teams found. Please try refreshing the page or contact an administrator.</div>;
+    return (
+      <div aria-live="polite" role="status">
+        There were no teams found. Please try refreshing the page or contact an
+        administrator.
+      </div>
+    );
   }
 
   // Render data
@@ -84,14 +93,17 @@ const Teams = () => {
               <div className="team-body">
                 <p>{team.description}</p>
                 {isLoadedTeamMembersData && teamMembersDataError && (
-                  <div>
+                  <div aria-live="polite" role="status">
                     Unable to load team members. Please try refreshing the page.
                   </div>
                 )}
 
-                {!teamMembersDataError &&
+                {isLoadedTeamMembersData &&
+                  !teamMembersDataError &&
                   (!teamMembersData || teamMembersData.length <= 0) && (
-                    <div>This team has no active members at the moment.</div>
+                    <div aria-live="polite" role="status">
+                      This team has no active members at the moment.
+                    </div>
                   )}
                 {isLoadedTeamMembersData &&
                   !teamMembersDataError &&
