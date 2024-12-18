@@ -1,42 +1,59 @@
 import { useEffect, useState } from "react";
-import TeamMember from "../TeamMember/TeamMember";
+import './Teams.css';
+import TeamMemberCard from "../TeamMemberCard/TeamMemberCard";
 
 const Teams = () => {
   const [isLoadedTeamsData, setIsLoadedTeamsData] = useState(false);
+  const [isLoadedTeamMembersData, setIsLoadedTeamMembersData] = useState(false);
   const [teamsData, setTeamsData] = useState([]);
   const [teamMembersData, setTeamMembersData] = useState([]);
-  const [teamsError, setTeamsError] = useState(null);
+  const [teamsDataError, setTeamsDataError] = useState(null);
+  const [teamMembersDataError, setTeamMembersDataError] = useState(null);
 
   useEffect(() => {
-  
-    //TODO: Add abort controller when fetching from API
-
     setIsLoadedTeamsData(false);
     // Fetch data from the JSON file in the public directory
-    async function fetchData () {
+    async function fetchTeamsData () {
       try {
-        const [responseTeams, responseMembers] =  await Promise.all([fetch("/teams.json"), fetch("/members.json")]);
-        // Check if both responses are successful
-        if (!responseTeams.ok || !responseMembers.ok) {
-          setTeamsError('Failed to fetch data!');
+        const responseTeams = await fetch("/teams.json");
+        if (!responseTeams.ok) {
+          setTeamsDataError('Failed to fetch teams data! Please refresh the page or try later.');
         };
-        const dataTeams = await responseTeams.json();
-        const dataMembers = await responseMembers.json();
-
-        setTeamsData(dataTeams);
-        setTeamMembersData(dataMembers);
+        setTeamsData(await responseTeams.json());
+        
       } catch (error) {
-        setTeamsError(error);
-        console.error("Error fetching data:", error);
+        setTeamsDataError(error);
+        console.error("Error fetching teams data:", error);
       } finally {
         setIsLoadedTeamsData(true);
       }
     }
-    fetchData();
-    
-    //TODO: Add cleanup function for abort controller when fetching from API
-    
+    fetchTeamsData();
   }, []);
+
+  useEffect(() => {
+    setIsLoadedTeamMembersData(false);
+    // Fetch data from the JSON file in the public directory
+    async function fetchTeamMembersData () {
+      try {
+        const responseTeamMemebers = await fetch("/members.json");
+        if (!responseTeamMemebers.ok) {
+          setTeamMembersDataError(
+            "Failed to fetch teams data! Please refresh the page or try later."
+          );
+        };
+        setTeamMembersData(await responseTeamMemebers.json());
+        
+      } catch (error) {
+        setTeamMembersDataError(error);
+        console.error("Error fetching team members data:", error);
+      } finally {
+        setIsLoadedTeamMembersData(true);
+      }
+    }
+    // Load Team Members Data if Team Data is Loaded
+    if(isLoadedTeamsData) fetchTeamMembersData();
+  }, [isLoadedTeamsData]);
 
   // If data not yet loaded
   if (!isLoadedTeamsData) {
@@ -44,40 +61,61 @@ const Teams = () => {
   }
 
   // If error encountered
-  if (teamsError) {
+  if (teamsDataError) {
     return <div>Unable to load teams. Please try refreshing the page.</div>;
   }
 
   // If team data is loaded but empty data returned
-  if (isLoadedTeamsData && !teamsError && (!teamsData || teamsData.length === 0)) {
-    return <div>No data found!</div>;
+  if (isLoadedTeamsData && !teamsDataError && (!teamsData || teamsData.length === 0)) {
+    return <div>There were no teams found. Please try refreshing the page or contact an administrator.</div>;
   }
 
   // Render data
-  if(!teamsError && teamsData.length > 0) {
+  if(!teamsDataError && teamsData.length > 0) {
     return (
-      <section>
+      <main>
+        <h1>The volunteer clans of TorontoJS!</h1>
         {teamsData.map((team, index) => {
           return (
-            <div key={index} className="team">
-              <div className="team-header">
+            <article key={index} className="team">
+              <header className="team-header">
                 <h2>{team.name}</h2>
-                <p>{team.description}</p>
-              </div>
+              </header>
 
-              <div className="team-body">              
-                {(!teamMembersData || teamMembersData.length <= 0) && (
-                  <div>No Team Members Found!</div>
-                )}                
-                {teamMembersData.length > 0 &&
-                  teamMembersData.map((member, index) => (
-                    <TeamMember key={index} member={member} />
-                  ))}
+              <div className="team-body">
+                <p>{team.description}</p>
+                {isLoadedTeamMembersData && teamMembersDataError && (
+                  <div>
+                    Unable to load team members. Please try refreshing the page.
+                  </div>
+                )}
+
+                {!teamMembersDataError &&
+                  (!teamMembersData || teamMembersData.length <= 0) && (
+                    <div>This team has no active members at the moment.</div>
+                  )}
+                {isLoadedTeamMembersData &&
+                  !teamMembersDataError &&
+                  teamMembersData.length > 0 && (
+                    <>
+                      <h3 id={`team-members-label-${index}`}>Team members</h3>
+                      <ul
+                        aria-labelledby={`team-members-label-${index}`}
+                        className="team-members-list"
+                      >
+                        {teamMembersData.map((member, index) => (
+                          <li key={index}>
+                            <TeamMemberCard member={member} />
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
               </div>
-            </div>
+            </article>
           );
         })}
-      </section>
+      </main>
     );
   }
 };
