@@ -9,16 +9,9 @@ import { defineConfig, type UserConfig } from 'vite';
 const IS_DEBUG = false;
 
 export default defineConfig(({ mode }) => {
-	let baseUrl = 'https://sdrlog.madcampos.dev/';
-
-	if (mode !== 'production' || IS_DEBUG) {
-		baseUrl = 'https://localhost:3000/';
-	}
-
 	const config: UserConfig = {
 		plugins: [react()],
 		esbuild: { target: 'esnext' },
-		base: baseUrl,
 		envPrefix: 'APP_',
 		envDir: '../',
 		root: 'src',

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1",
+    "name": "John Doe",
+    "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/johndoe"
+    }
+  },
+  {
+    "id": "2",
+    "name": "Jane Smith",
+    "avatar": "https://randomuser.me/api/portraits/women/1.jpg",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/janesmith"
+    }
+  },
+  {
+    "id": "3",
+    "name": "Alexander Cooper",
+    "avatar": "https://randomuser.me/api/portraits/men/2.jpg",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/johndoe"
+    }
+  },
+  {
+    "id": "4",
+    "name": "Amelia Bennett",
+    "avatar": "https://randomuser.me/api/portraits/women/2.jpg",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/janesmith"
+    }
+  },{
+    "id": "5",
+    "name": "Benjamin Harris",
+    "avatar": "https://randomuser.me/api/portraits/men/3.jpg",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/johndoe"
+    }
+  },
+  {
+    "id": "6",
+    "name": "Briar Smith",
+    "avatar": "https://randomuser.me/api/portraits/women/3.jpg",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/janesmith"
+    }
+  },{
+    "id": "7",
+    "name": "Olivia Davis",
+    "avatar": "https://randomuser.me/api/portraits/men/4.jpg",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/johndoe"
+    }
+  },
+  {
+    "id": "8",
+    "name": "Isabella Johnson",
+    "avatar": "https://randomuser.me/api/portraits/women/4.jpg",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/janesmith"
+    }
+  }
+]
+

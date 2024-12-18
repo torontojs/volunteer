@@ -1,0 +1,34 @@
+[
+    {
+        "id": "e39e8391-e3f0-4c82-8a07-eccea7427e16",
+        "name": "Design Dragons",
+        "description": "Toronto JS' awesome creative minds!",
+        "happenedAt": "2024-12-09T12:00:00",
+        "insertedAt": "2024-12-01T10:00:00",
+        "avatar": "https://randomuser.me/api/portraits/lego/1.jpg"
+    },
+    {
+        "id": "4896e242-6d61-492c-aca6-29fbe62a96dc",
+        "name": "Development Druids",
+        "description": "Toronto JS' exceptional code magicians!",
+        "happenedAt": "2024-12-09T12:00:00",
+        "insertedAt": "2024-12-01T10:00:00",
+        "avatar": "https://randomuser.me/api/portraits/lego/2.jpg"
+    },
+    {
+        "id": "884b92f1-992b-46fd-a3ba-54251fe85daa",
+        "name": "Community Crafters",
+        "description": "Toronto JS' tournament wizards!",
+        "happenedAt": "2024-12-09T12:00:00",
+        "insertedAt": "2024-12-01T10:00:00",
+        "avatar": "https://randomuser.me/api/portraits/lego/5.jpg"
+    },
+    {
+        "id": "ae2379dc-f215-4c79-a942-45ccb308312a",
+        "name": "Omnipotent Organisers",
+        "description": "Toronto JS' overseeing overlords!",
+        "happenedAt": "2024-12-09T12:00:00",
+        "insertedAt": "2024-12-01T10:00:00",
+        "avatar": "https://randomuser.me/api/portraits/lego/9.jpg"
+    }
+]

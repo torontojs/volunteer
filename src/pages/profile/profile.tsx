@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import Teams from '../../components/Teams/Teams.js';
+import ProfileList from '../../components/Profile.js';
 
 import 'open-props';
 import './style.css';
@@ -12,7 +12,7 @@ createRoot(root).render(
 	(
 		<StrictMode>
 			<div className='App'>
-				<Teams />
+				<ProfileList />
 			</div>
 		</StrictMode>
 	)
