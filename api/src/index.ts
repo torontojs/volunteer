@@ -7,6 +7,7 @@ import { secureHeaders } from 'hono/secure-headers';
 import packageJson from '../../package.json' with { type: 'json' };
 import { authRoutes } from './routes/auth/index.ts';
 import { documentRoutes } from './routes/documents/index.ts';
+import { fileRoutes } from './routes/files/index.ts';
 import { healthCheckRoutes } from './routes/health-check/index.ts';
 import { profileRoutes } from './routes/profile/index.ts';
 import { teamMemberRoutes } from './routes/team-members/index.ts';
@@ -95,6 +96,7 @@ apiRoutes.route('/documents', documentRoutes);
 apiRoutes.route('/teams', teamRoutes);
 // All routes follow the format /teams/{id}/members
 apiRoutes.route('/teams', teamMemberRoutes);
+apiRoutes.route('/files', fileRoutes);
 
 // Make all routes prefixed to /api
 app.route('/api', apiRoutes);
