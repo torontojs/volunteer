@@ -1,5 +1,6 @@
 import type { Context } from 'hono';
 import { type CreateEmailResponse, Resend } from 'resend';
+import { generateCommunityNotificationHtml } from './templates/community-notification.ts';
 
 interface EmailSendingParams {
 	apiKey: string;
@@ -10,7 +11,7 @@ interface EmailSendingParams {
 	text?: string;
 }
 
-async function sendEmail(context: Context<EnvironmentBindings>, { apiKey, from, to, subject, text, html }: EmailSendingParams) {
+export async function sendEmail(context: Context<EnvironmentBindings>, { apiKey, from, to, subject, text, html }: EmailSendingParams) {
 	if (context.env.ARE_EMAILS_LOCAL_ONLY === 'true') {
 		/* eslint-disable no-console */
 		console.log(`[📨] You got mail!`);
@@ -27,6 +28,46 @@ async function sendEmail(context: Context<EnvironmentBindings>, { apiKey, from, 
 	const emailResponse = await resend.emails.send({ from, to, subject, text, html });
 
 	return emailResponse;
+}
+
+const HTML_ENTITIES: Record<string, string> = {
+	'&': '&amp;',
+	'<': '&lt;',
+	'>': '&gt;',
+	'"': '&quot;',
+	"'": '&#039;'
+};
+
+function escapeHtml(value: string) {
+	return value.replace(/[&<>"']/gu, (character) => HTML_ENTITIES[character] ?? character);
+}
+
+interface CommunityNotificationEmailParams {
+	email: string;
+	message: string;
+	apiKey: string;
+	senderEmail: string;
+	subject: string;
+}
+
+export async function sendCommunityNotificationEmail(context: Context<EnvironmentBindings>, {
+	email,
+	message,
+	apiKey,
+	senderEmail,
+	subject
+}: CommunityNotificationEmailParams) {
+	const escapedMessage = escapeHtml(message).replace(/\n/gu, '<br>');
+	const logoUrl = new URL('/torontojs-logo.png', context.env.FRONTEND_URL).toString();
+
+	return sendEmail(context, {
+		apiKey,
+		from: senderEmail,
+		to: email,
+		subject,
+		text: message,
+		html: generateCommunityNotificationHtml(logoUrl, escapeHtml(subject), escapedMessage)
+	});
 }
 
 interface AccountConfirmationEmailParams {

@@ -3,7 +3,7 @@ import './AuthenticatedLayout.css';
 import { useAuth } from '../../context/AuthContext.tsx';
 import { handleLogOut } from '../../utilities/handleLogOut.ts';
 
-type ActivePage = 'community' | 'profile' | 'teams' | 'volunteer';
+type ActivePage = 'community' | 'notifications' | 'profile' | 'teams' | 'volunteer';
 
 interface Props {
 	activePage?: ActivePage;
@@ -82,8 +82,13 @@ const AuthenticatedLayout = ({ activePage, children, className, mainClassName }:
 					</a>
 					<div className='inner-header'>
 						<img className='small-avatar' src={avatar} alt='Small User Avatar' />
-						<a href='/pages/notifications/'>
-							<img className='notification-bell' src='/notification-bell.png' alt='Notification bell icon' />
+						<a
+							className='notification-link'
+							href='/pages/notifications/'
+							aria-label='Notifications'
+							aria-current={activePage === 'notifications' ? 'page' : undefined}
+						>
+							<img className='notification-bell' src='/notification-bell.png' alt='' />
 						</a>
 					</div>
 				</header>
